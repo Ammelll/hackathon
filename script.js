@@ -10,23 +10,24 @@ class Player{
     }
     update(){
         p.draw()
+        if (keyIsDown(37)) {
+            p.x -= 5;
+        }
+        if (keyIsDown(39)) {
+            p.x += 5;
+        }
+        if (keyIsDown(38)) {
+            p.y -= 5;
+        }
+        if (keyIsDown(40)) {
+            p.y += 5;
+        }
     }
     draw(){
         circle(p.x,p.y,50)
     }
-    keyPressed(key,keyCode){
-         if (keyIsDown(37)) {
-            p.x -= 1;
-        }
-        if (keyIsDown(39)) {
-            p.x += 1;
-        }
-        if (keyIsDown(38)) {
-            p.y -= 1;
-        }
-        if (keyIsDown(40)) {
-            p.y += 1;
-        }
+    keyPressed(){
+         
     }
 }
 function draw() {
