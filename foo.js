@@ -2,8 +2,11 @@ const print = console.log
 
 let p;
 let rectangles = [new Rectangle(0, 500, 1000, 100)];
+function preload() {
+  img = loadImage('/assets/rb.png');
+}
 function setup() {
-    p = new Player(100, 100)
+    p = new Player(100, 100,img)
     createCanvas(window.innerWidth, window.innerHeight);
 }
 function draw() {

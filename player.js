@@ -3,7 +3,7 @@ const RIGHT = 39;
 const UP = 38;
 const DOWN = 40;
 class Player {
-    constructor(x, y) {
+    constructor(x, y,sprite) {
         this.x = x;
         this.y = y;
         this.v = new Velocity(0, 0);
@@ -11,6 +11,8 @@ class Player {
         this.maxSpeed = 5;
         this.radius = 25;
         this.isGround = false;
+        this.sprite = sprite;
+        this.angle = 0;
     }
     update() {
         p.collisions()
@@ -24,9 +26,11 @@ class Player {
     playerInputs() {
         if (keyIsDown(LEFT)) {
             p.v.vx -= p.acceleration;
+            this.angle-=5
         }
         if (keyIsDown(RIGHT)) {
             p.v.vx += p.acceleration;
+            this.angle+=5
         }
         if (keyIsDown(UP) && this.isGround) {
             p.v.vy -= 5;
@@ -46,7 +50,14 @@ class Player {
         p.y += this.v.vy
     }
     draw() {
-        circle(p.x, p.y, p.radius * 2)
+        imageMode(CENTER);
+        translate(p.x, p.y);
+        rotate(PI/180 * this.angle);
+        image(img, 0, 0, p.radius*2, p.radius*2);
+        rotate(-PI / 180 * this.angle);
+        translate(-(p.x), -(p.y));
+
+        // image(img, p.x-p.radius, p.y-p.radius,p.radius*2,p.radius*2);
     }
     keyPressed() {
 
