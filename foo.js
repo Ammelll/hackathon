@@ -5,8 +5,11 @@ let rectangles = [new Rectangle(1000, 0), new Rectangle(1000, window.innerWidth 
 setInterval(() => rectangles.filter(r => r.x + r.w >= 0), 2000);
 setInterval(() => rectangles.push(new Rectangle(1000)), 10000);
 
+function preload() {
+  img = loadImage('/assets/rb.png');
+}
 function setup() {
-    p = new Player(100, 100)
+    p = new Player(100, 100,img)
     createCanvas(window.innerWidth, window.innerHeight);
 }
 function draw() {
