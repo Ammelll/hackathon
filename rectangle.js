@@ -1,18 +1,24 @@
 class Rectangle {
 
-    constructor(w, x = window.innerWidth) {
+    constructor(x,y,w,h = 60) {
         this.x = x
-        this.y = Rectangle.randY();
-        this.w = Math.floor(Math.random() * 500) + 500;
-        this.h = 100;
-        this.v = new Velocity(-2, 0);
+        this.y = y
+        this.ox = x;
+        this.oy = y;
+        this.w = w;
+        this.h = h;
+        this.v = new Velocity(0, 0);
     }
 
     move() {
         this.x += this.v.vx;
         this.y += this.v.vy;
     }
-
+    draw(p){
+        this.x = this.ox-p.x;
+        this.y = this.oy-p.y;
+        rect(this.x, this.y, this.w, this.h);
+    }
     static randY() {
         return Math.floor(Math.random() *  (window.innerHeight - 100 - 100)) + 100;
     }
