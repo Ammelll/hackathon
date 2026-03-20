@@ -1,19 +1,30 @@
 class Rectangle {
 
-    constructor(sprite, x,y,w,h = 60) {
+    constructor(sprite, x,y,w,h = 60, range = 0) {
         this.x = x
         this.y = y
         this.ox = x;
         this.oy = y;
+        this.ooy = y;
         this.w = w;
         this.h = h;
-        this.v = new Velocity(0, 0);
+        this.v = new Velocity(0,-1);
         this.sprite = sprite
+        this.range = range;
     }
 
     move() {
-        this.x += this.v.vx;
-        this.y += this.v.vy;
+        if(this.range == 0){
+            this.v = new Velocity(0,0)
+        }
+        if(this.oy > this.ooy + this.range){
+            this.v.vy = -3;
+        }
+        if(this.oy < this.ooy-this.range){
+            this.v.vy = 3;
+        }
+        this.ox += this.v.vx;
+        this.oy += this.v.vy;
     }
     draw(p){
         this.x = this.ox-p.x;
