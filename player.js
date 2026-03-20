@@ -5,7 +5,7 @@ const DOWN = 40;
 const R = 82;
 const AIR_RESISTANCE_FACTOR = 0.08
 class Player {
-    constructor(x, y,sprite) {
+    constructor(x, y,sprite,levels) {
         this.x = x;
         this.y = y;
         this.rx = x;
@@ -17,8 +17,10 @@ class Player {
         this.isGround = false;
         this.sprite = sprite;
         this.angle = 0;
+        this.level = 1;
         //negative = left, 0 = nothing, positive = right
         this.isWall = 0;
+        this.levels = levels;
     }
     update() {
         p.collisions()
@@ -50,7 +52,6 @@ class Player {
             p.v.vy = Math.min(Math.max(p.v.vy, -p.maxSpeed), p.maxSpeed);
         }
         p.angle+=this.v.vx
-            print(this.isWall > 0 && this.v.vx > 0)
 
         if(this.isWall != 0){
             if(this.isWall < 0 && this.v.vx > 0){
@@ -82,7 +83,7 @@ class Player {
     collisions() {
         this.isGround = false
         this.isWall= 0;
-        for (let r of rectangles) {
+        for (let r of this.levels[this.level]) {
            r.collide(this)
         }
     }

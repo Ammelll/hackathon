@@ -3,7 +3,7 @@ class Flag {
     constructor(x,y) {
         this.x = x
         this.y = y
-        this.w = 10
+        this.w = 5
         this.h = 100
         this.ox = x;
         this.oy = y;
@@ -21,6 +21,9 @@ class Flag {
                 p.ry - p.radius < this.y + this.h && p.ry + p.radius > this.y) {
                     if(downOffset > 20){
                         downOffset-=0.5
+                    } else{
+                        p.level+=1;
+                        p.reset()
                     }
                     p.v = new Velocity(0,0)
             }
