@@ -17,7 +17,8 @@ class Player {
         this.isGround = false;
         this.sprite = sprite;
         this.angle = 0;
-        this.isWall = false;
+        //negative = left, 0 = nothing, positive = right
+        this.isWall = 0;
     }
     update() {
         p.collisions()
@@ -49,8 +50,15 @@ class Player {
             p.v.vy = Math.min(Math.max(p.v.vy, -p.maxSpeed), p.maxSpeed);
         }
         p.angle+=this.v.vx
-        if(this.isWall){
-            this.v.vx = 0
+            print(this.isWall > 0 && this.v.vx > 0)
+
+        if(this.isWall != 0){
+            if(this.isWall < 0 && this.v.vx > 0){
+                this.v.vx = 0
+            }
+            if(this.isWall > 0 && this.v.vx < 0){
+                this.v.vx = 0
+            }
         }
         p.x += this.v.vx;
 
@@ -73,6 +81,7 @@ class Player {
 
     collisions() {
         this.isGround = false
+        this.isWall= 0;
         for (let r of rectangles) {
            r.collide(this)
         }

@@ -22,9 +22,25 @@ class Rectangle {
         image(this.sprite,this.x,this.y, this.w,this.h);
     }
     collide(p){
-        if (p.rx - p.radius < this.x + this.w && p.rx + p.radius > this.x &&
-            p.ry - p.radius < this.y + this.h && p.ry + p.radius > this.y) {
+        let rCenterX = this.x + this.w / 2;
+        let rCenterY = this.y + this.h / 2;
+
+        let dx = rCenterX- p.rx;
+        let dy = rCenterY - p.ry;
+
+        let halfWidths = p.radius + this.w/2;
+        let halfHeights = p.radius + this.h / 2;
+
+        if (abs(dx) < halfWidths && abs(dy) < halfHeights) {
+
+            let overlapX = halfWidths - abs(dx);
+            let overlapY = halfHeights - abs(dy);
+
+            if (overlapX < overlapY) {
+                p.isWall = dx > 0 ? -1 : 1;
+            } else {
                 p.isGround = true;
+            }
         }
     }
     static randY() {
