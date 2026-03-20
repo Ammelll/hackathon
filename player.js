@@ -59,7 +59,7 @@ class Player {
         imageMode(CENTER);
         translate(window.innerWidth/2, window.innerHeight/2-300);
         rotate(PI/180 * this.angle);
-        image(img, 0, 0, p.radius*2, p.radius*2);
+        image(this.sprite, 0, 0, p.radius*2, p.radius*2);
         rotate(-PI / 180 * this.angle);
         translate(-(window.innerWidth/2), -(window.innerHeight/2-300));
 
@@ -71,10 +71,7 @@ class Player {
     collisions() {
         this.isGround = false
         for (let r of rectangles) {
-            if (p.rx - p.radius < r.x + r.w && p.rx + p.radius > r.x &&
-                p.ry - p.radius < r.y + r.h && p.ry + p.radius > r.y) {
-                    this.isGround = true;
-            }
+           r.collide(this)
         }
     }
     gravity() {

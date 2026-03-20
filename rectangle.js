@@ -1,6 +1,6 @@
 class Rectangle {
 
-    constructor(x,y,w,h = 60) {
+    constructor(sprite, x,y,w,h = 60) {
         this.x = x
         this.y = y
         this.ox = x;
@@ -8,6 +8,7 @@ class Rectangle {
         this.w = w;
         this.h = h;
         this.v = new Velocity(0, 0);
+        this.sprite = sprite
     }
 
     move() {
@@ -17,7 +18,14 @@ class Rectangle {
     draw(p){
         this.x = this.ox-p.x;
         this.y = this.oy-p.y;
-        rect(this.x, this.y, this.w, this.h);
+        imageMode(CORNER)
+        image(this.sprite,this.x,this.y, this.w,this.h);
+    }
+    collide(p){
+        if (p.rx - p.radius < this.x + this.w && p.rx + p.radius > this.x &&
+            p.ry - p.radius < this.y + this.h && p.ry + p.radius > this.y) {
+                p.isGround = true;
+        }
     }
     static randY() {
         return Math.floor(Math.random() *  (window.innerHeight - 100 - 100)) + 100;
