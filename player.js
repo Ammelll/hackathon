@@ -2,6 +2,7 @@ const LEFT = 37;
 const RIGHT = 39;
 const UP = 38;
 const DOWN = 40;
+const R = 82;
 const AIR_RESISTANCE_FACTOR = 0.08
 class Player {
     constructor(x, y,sprite) {
@@ -24,6 +25,7 @@ class Player {
         p.playerInputs()
         p.move()
         p.gravity()
+        p.death()
     }
     playerInputs() {
        if (keyIsDown(LEFT)) {
@@ -34,6 +36,9 @@ class Player {
         }
         if (keyIsDown(UP) && this.isGround) {
             p.v.vy -= 5;
+        }
+        if (keyIsDown(R)){
+            this.reset();
         }
     }
     move() {
@@ -65,9 +70,7 @@ class Player {
 
         // image(img, p.x-p.radius, p.y-p.radius,p.radius*2,p.radius*2);
     }
-    keyPressed() {
 
-    }
     collisions() {
         this.isGround = false
         for (let r of rectangles) {
@@ -76,5 +79,15 @@ class Player {
     }
     gravity() {
         p.v.vy += 0.1
+    }
+    death(){
+        if(p.y > 500){
+           this.reset()
+        }
+    }
+    reset(){
+        p.x = p.rx
+        p.y = p.ry
+        p.v = new Velocity(0,0)
     }
 }
