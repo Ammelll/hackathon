@@ -4,6 +4,7 @@ let p;
 const width = window.innerWidth
 const height = window.innerHeight
 let rectangles = [];
+const start = Date.now();
 
 // setInterval(() => rectangles.filter(r => r.x + r.w >= 0), 2000);
 // setInterval(() => rectangles.push(new Rectangle(1000)), 10000);
@@ -22,10 +23,19 @@ function draw() {
     background(220);
     p.update()
     drawRectangles();
+    drawText();
 }
+
+function drawText() {
+    const t = Date.now() - start;
+    fill('black');
+    textSize(25);
+    text(Math.floor(t / 1000) + '.' + Math.floor((t % 1000) / 10), 10, 25);
+}
+
 function drawRectangles() {
     for (let r of rectangles) {
         r.move();
-        r.draw(p)
+        r.draw(p);
     }
 }
