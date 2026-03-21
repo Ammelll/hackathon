@@ -33,6 +33,7 @@ class Rectangle {
         image(this.sprite,this.x,this.y, this.w,this.h);
     }
     collide(p){
+
         let rCenterX = this.x + this.w / 2;
         let rCenterY = this.y + this.h / 2;
 
@@ -51,6 +52,7 @@ class Rectangle {
                 p.isWall = dx > 0 ? -1 : 1;
             } else {
                 p.isGround = true;
+                p.v.vy=this.v.vy
             }
         }
     }

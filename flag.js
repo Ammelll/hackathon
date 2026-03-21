@@ -1,4 +1,3 @@
-let downOffset = 80;
 class Flag {
     constructor(x,y) {
         this.x = x
@@ -7,6 +6,7 @@ class Flag {
         this.h = 100
         this.ox = x;
         this.oy = y;
+        this.downOffset = 80
     }
     draw(p){
         this.x = this.ox-p.x;
@@ -14,13 +14,13 @@ class Flag {
         fill("black")
         rect(this.x,this.y,this.w,this.h)
         fill("red")
-        triangle(this.x,this.y+downOffset,this.x,this.y+downOffset-20,this.x+50,this.y+downOffset-10)
+        triangle(this.x,this.y+this.downOffset,this.x,this.y+this.downOffset-20,this.x+50,this.y+this.downOffset-10)
     }
     collide(p){
          if (p.rx - p.radius < this.x + this.w && p.rx + p.radius > this.x &&
                 p.ry - p.radius < this.y + this.h && p.ry + p.radius > this.y) {
-                    if(downOffset > 20){
-                        downOffset-=0.5
+                    if(this.downOffset > 20){
+                        this.downOffset-=0.5
                     } else{
                         p.level+=1;
                         p.reset()

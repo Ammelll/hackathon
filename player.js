@@ -3,7 +3,7 @@ const RIGHT = 39;
 const UP = 38;
 const DOWN = 40;
 const R = 82;
-const AIR_RESISTANCE_FACTOR = 0.08
+const AIR_RESISTANCE_FACTOR = 0.25
 class Player {
     constructor(x, y,sprite,levels) {
         this.x = x;
@@ -11,31 +11,32 @@ class Player {
         this.rx = x;
         this.ry = y;
         this.v = new Velocity(0, 0);
-        this.acceleration = 1;
+        this.acceleration = 0.25;
         this.maxSpeed = 5;
         this.radius = 25;
         this.isGround = false;
         this.sprite = sprite;
         this.angle = 0;
-        this.level = 0;
+        this.level = 2;
         //negative = left, 0 = nothing, positive = right
         this.isWall = 0;
         this.levels = levels;
+        this.gravity = 0.1;
     }
     update() {
         p.collisions()
         p.draw()
         p.playerInputs()
         p.move()
-        p.gravity()
+        p.applyGravity()
         p.death()
     }
     playerInputs() {
        if (keyIsDown(LEFT)) {
-            p.v.vx -= p.acceleration * this.isGround ? 1 : AIR_RESISTANCE_FACTOR;
+            p.v.vx -= p.acceleration * (this.isGround ? 1 : AIR_RESISTANCE_FACTOR);
         }
         if (keyIsDown(RIGHT)) {
-            p.v.vx += p.acceleration * this.isGround ? 1 : AIR_RESISTANCE_FACTOR;
+            p.v.vx += p.acceleration * (this.isGround ? 1 : AIR_RESISTANCE_FACTOR);
         }
         if (keyIsDown(UP) && this.isGround) {
             p.v.vy -= 5;
@@ -87,8 +88,8 @@ class Player {
            r.collide(this)
         }
     }
-    gravity() {
-        p.v.vy += 0.1
+    applyGravity() {
+        p.v.vy += this.gravity
     }
     death(){
         if(p.y > 500){
