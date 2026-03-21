@@ -17,7 +17,7 @@ class Player {
         this.isGround = false;
         this.sprite = sprite;
         this.angle = 0;
-        this.level = 2;
+        this.level = 0;
         //negative = left, 0 = nothing, positive = right
         this.isWall = 0;
         this.levels = levels;
@@ -71,13 +71,15 @@ class Player {
         p.y +=this.v.vy
     }
     draw() {
+        fill('white')
+        circle(p.rx,p.ry,p.radius*2)
         imageMode(CENTER);
         translate(window.innerWidth/2, window.innerHeight/2-300);
         rotate(PI/180 * this.angle);
         image(this.sprite, 0, 0, p.radius*2, p.radius*2);
         rotate(-PI / 180 * this.angle);
         translate(-(window.innerWidth/2), -(window.innerHeight/2-300));
-
+        
         // image(img, p.x-p.radius, p.y-p.radius,p.radius*2,p.radius*2);
     }
 

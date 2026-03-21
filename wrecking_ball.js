@@ -26,13 +26,20 @@ class Wrecking_Ball {
         this.y -= this.l * (this.dTheta * this.dTheta / 2) * Math.cos(this.w*this.t) * Math.cos(this.w*this.t)
         this.vx = this.x-oldx
         imageMode(CORNER)
-        // image(this.sprite,this.x,this.y, this.w,this.h);
-        circle(this.x,this.y,this.r)
+        line(this.ox-p.x,this.oy-p.y-500,this.x,this.y)
+        image(this.sprite,this.x-this.r/2,this.y-this.r/2, this.r,this.r);
     }
     collide(p){
-        if(Math.hypot((this.x-p.rx),(this.y-p.ry)) < this.r ){
-            p.v.vx -= 2 *this.vx
-            p.v.vy = -p.v.vy
+        let dx = this.x - p.rx ;
+        let dy = this.y - p.ry;
+        let dist = Math.hypot(dx, dy);
+        if(dist < this.r - p.radius){
+            let theta = Math.atan2(dy, dx);
+            let overlap = (this.r + p.radius) - dist;
+            let dvx = overlap * Math.cos(theta)
+            let dvy = overlap * Math.sin(theta)
+            p.v.vx-=dvx
+            p.v.vy-=dvy
         }
     }
 }
