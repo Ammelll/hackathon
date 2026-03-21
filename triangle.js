@@ -36,8 +36,9 @@ class Triangle {
         if(p.rx > this.x1 && p.rx < this.x3){
             if(p.ry+p.radius > this.y1+(p.rx-this.x1) * (this.rise/this.run)){
                 p.v.vx += p.gravity * Math.sin(Math.atan2(this.rise,this.run))
+                p.isGround = true;
                 if(p.v.vx > 0){
-                    p.v.vy = -p.gravity-p.v.vx
+                    p.v.vy = -p.gravity-p.v.vx/2
                 } else{
                     p.v.vy = 0;
                 }
