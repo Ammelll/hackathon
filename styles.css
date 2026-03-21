@@ -1,4 +1,17 @@
 body {
     margin: 0;
     overflow: hidden;
+    text-align: center;
+    background-color: #11d8f3;
+}
+
+img {
+    height: 150px;
+    width: 150px;
+    padding: 20px;
+}
+
+button {
+    background: none;
+    border: none;   
 }

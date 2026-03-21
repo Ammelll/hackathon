@@ -1,6 +1,6 @@
 class Rectangle {
 
-    constructor(sprite, x,y,w,h = 60, rangeX = 0, rangeY = 0) {
+    constructor(sprite, x, y, w, h = 60, rangeX = 0, rangeY = 0) {
         this.x = x
         this.y = y
         this.ox = x;
@@ -9,49 +9,49 @@ class Rectangle {
         this.ooy = y;
         this.w = w;
         this.h = h;
-        this.v = new Velocity(-1,-1);
+        this.v = new Velocity(-1, -1);
         this.sprite = sprite
         this.rangeY = rangeY;
         this.rangeX = rangeX
     }
 
     move() {
-        if(this.rangeY == 0){
+        if (this.rangeY == 0) {
             this.v.vy = 0
         }
-        if(this.rangeX == 0){
+        if (this.rangeX == 0) {
             this.v.vx = 0
         }
-        if(this.oy > this.ooy + this.rangeY){
+        if (this.oy > this.ooy + this.rangeY) {
             this.v.vy = -3;
         }
-        if(this.oy < this.ooy-this.rangeY){
+        if (this.oy < this.ooy - this.rangeY) {
             this.v.vy = 3;
         }
-        if(this.ox > this.oox + this.rangeX){
+        if (this.ox > this.oox + this.rangeX) {
             this.v.vx = -3;
         }
-        if(this.ox < this.oox-this.rangeX){
+        if (this.ox < this.oox - this.rangeX) {
             this.v.vx = 3;
         }
         this.ox += this.v.vx;
         this.oy += this.v.vy;
     }
-    draw(p){
-        this.x = this.ox-p.x;
-        this.y = this.oy-p.y;
+    draw(p) {
+        this.x = this.ox - p.x;
+        this.y = this.oy - p.y;
         imageMode(CORNER)
-        image(this.sprite,this.x,this.y, this.w,this.h);
+        image(this.sprite, this.x, this.y, this.w, this.h);
     }
-    collide(p){
+    collide(p) {
 
         let rCenterX = this.x + this.w / 2;
         let rCenterY = this.y + this.h / 2;
 
-        let dx = rCenterX- p.rx;
+        let dx = rCenterX - p.rx;
         let dy = rCenterY - p.ry;
 
-        let halfWidths = p.radius + this.w/2;
+        let halfWidths = p.radius + this.w / 2;
         let halfHeights = p.radius + this.h / 2;
 
         if (abs(dx) < halfWidths && abs(dy) < halfHeights) {
@@ -63,11 +63,8 @@ class Rectangle {
                 p.isWall = dx > 0 ? -1 : 1;
             } else {
                 p.isGround = true;
-                p.v.vy=this.v.vy
+                p.v.vy = this.v.vy
             }
         }
-    }
-    static randY() {
-        return Math.floor(Math.random() *  (window.innerHeight - 100 - 100)) + 100;
     }
 }
