@@ -48,22 +48,23 @@ function stup () {
 }
 
 function draw() {
-    if (keyIsDown('P'.codePointAt(0))) 
-        return console.log('foo'), pauseTime === null ? pause() : unpause();
-    if (pauseTime !== null) return;
     background(220);
     p.update()
     drawRectangles();
     drawText();
 }
 
-function pause() {
-    pauseTime = Date.now();
-}
-
-function unpause() {
-    start += Date.now() - pauseTime;
-    pauseTime = null;
+function keyPressed(keyEvent) {
+    console.log(keyEvent.key);
+    if (keyEvent.key === 'p')
+        pauseTime === null ? (
+            noLoop(),
+            pauseTime = Date.now()
+        ) : (
+            start += Date.now() - pauseTime,
+            pauseTime = null,
+            loop()
+        )
 }
 
 function drawText() {
