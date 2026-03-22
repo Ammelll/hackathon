@@ -5,6 +5,7 @@ const width = window.innerWidth
 const height = window.innerHeight
 let levels;
 let start;
+let pauseTime = null;
 let sprites = ['assets/rb.png', 'assets/steve.png'];
 let sprite;
 
@@ -47,12 +48,22 @@ function stup () {
 }
 
 function draw() {
-    try {
+    if (keyIsDown('P'.codePointAt(0))) 
+        return console.log('foo'), pauseTime === null ? pause() : unpause();
+    if (pauseTime !== null) return;
     background(220);
     p.update()
     drawRectangles();
     drawText();
-    } catch (e) {console.log(e)}
+}
+
+function pause() {
+    pauseTime = Date.now();
+}
+
+function unpause() {
+    start += Date.now() - pauseTime;
+    pauseTime = null;
 }
 
 function drawText() {
