@@ -1,0 +1,2 @@
+1. make checkpoints actually behave like checkpoints
+2. make the player able to change levels
