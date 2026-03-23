@@ -33,11 +33,11 @@ class Wrecking_Ball {
         let dx = this.x - p.rx;
         let dy = this.y - p.ry;
         let dist = Math.hypot(dx, dy);
-        if (dist < this.r - p.radius) {
+        if (dist < this.r - 2 * p.radius) {
             let theta = Math.atan2(dy, dx);
             let overlap = (this.r + p.radius) - dist;
             let dvx = overlap * Math.cos(theta)
-            let dvy = overlap * Math.sin(theta)
+            let dvy = overlap * Math.sin(theta) 
             p.v.vx -= dvx
             p.v.vy -= dvy
         }
