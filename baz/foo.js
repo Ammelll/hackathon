@@ -30,11 +30,11 @@ function startup() {
 }
 
 function preload() {
+    noLoop();
     grassImage = loadImage('/assets/grass.png');
     stoneImage = loadImage('/assets/stone.png');
     dirtImage = loadImage('/assets/dirt.png');
     concreteBallImage = loadImage('/assets/concrete.png');
-    noLoop();
 }
 
 function stup () {
@@ -55,7 +55,6 @@ function draw() {
 }
 
 function keyPressed(keyEvent) {
-    console.log(keyEvent.key);
     if (keyEvent.key === 'p')
         pauseTime === null ? (
             noLoop(),
@@ -64,7 +63,7 @@ function keyPressed(keyEvent) {
             start += Date.now() - pauseTime,
             pauseTime = null,
             loop()
-        )
+        );
 }
 
 function drawText() {

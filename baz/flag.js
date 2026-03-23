@@ -1,19 +1,20 @@
 class Flag {
     constructor(x, y) {
-        this.x = x
-        this.y = y
-        this.w = 5
-        this.h = 100
+        this.x = x;
+        this.y = y;
+        this.w = 5;
+        this.h = 100;
         this.ox = x;
         this.oy = y;
-        this.downOffset = 80
+        this.color = 'red';
+        this.downOffset = 80;
     }
     draw(p) {
         this.x = this.ox - p.x;
         this.y = this.oy - p.y;
         fill("black")
         rect(this.x, this.y, this.w, this.h)
-        fill("red")
+        fill(this.color)
         triangle(this.x, this.y + this.downOffset, this.x, this.y + this.downOffset - 20, this.x + 50, this.y + this.downOffset - 10)
     }
     collide(p) {

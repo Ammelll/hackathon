@@ -2,6 +2,7 @@ function loadLevels() {
     levels = [
         [
             new Rectangle(grassImage, width * 11 / 12, height / 2, width / 6), 
+            new Checkpoint(width * 13 / 12, height / 2 - 75),
             new Rectangle(grassImage, width * 6 / 5, height / 2, width * 1 / 3), 
             new Rectangle(stoneImage, width * 13 / 10, height / 2 - 100, 60, 100), 
             new Flag(width * 3 / 2, height / 2 - 100)
@@ -17,7 +18,8 @@ function loadLevels() {
             new Rectangle(grassImage, width * 60 / 24, height / 2, width / 6), 
             new Flag(width * 63 / 24, height / 2 - 100)
         ],
-        [new Rectangle(grassImage, width * 11 / 12, height / 2, width / 6), 
+        [
+            new Rectangle(grassImage, width * 11 / 12, height / 2, width / 6), 
             new Rectangle(grassImage, width * 6 / 5, height / 2, width / 3), 
             new Spikes(width * 13 / 10, height / 2, 300, 10), 
             new Rectangle(stoneImage, width * 8 / 5, height / 2 - 100, width / 6, 20, 0, 200), 
@@ -28,7 +30,7 @@ function loadLevels() {
             new Spikes(width * 13 / 10, -height / 3, 300, 10), 
             new Flag(width * 8 / 5, -height / 3 - 100)],
         [
-            
+
         ],
     ];
 }

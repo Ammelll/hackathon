@@ -43,7 +43,7 @@ class Player {
         }
         if (keyIsDown(R)) {
             this.reset();
-        }
+           }
     }
     move() {
         if (abs(this.v.vx) > MAX_SPEED) {
