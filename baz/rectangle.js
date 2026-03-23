@@ -54,8 +54,7 @@ class Rectangle {
         let halfWidths = p.radius + this.w / 2;
         let halfHeights = p.radius + this.h / 2;
 
-        if (abs(dx) < halfWidths && abs(dy) < halfHeights) {
-
+        if (abs(dx) < halfWidths && dy < halfHeights && dy > 0) {
             let overlapX = halfWidths - abs(dx);
             let overlapY = halfHeights - abs(dy);
 

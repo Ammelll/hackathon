@@ -18,7 +18,7 @@ class Player {
         this.isGround = false;
         this.sprite = sprite;
         this.angle = 0;
-        this.level = 0;
+        this.level = 3;
         //negative = left, 0 = nothing, positive = right
         this.isWall = 0;
         this.gravity = 0.1;
@@ -74,7 +74,7 @@ class Player {
         fill('white')
         circle(this.rx, this.ry, this.radius * 2)
         imageMode(CENTER);
-        translate(window.innerWidth / 2, window.innerHeight / 2 - 300);
+        translate(this.rx, this.ry);
         rotate(PI / 180 * this.angle);
         image(this.sprite, 0, 0, this.radius * 2, this.radius * 2);
         rotate(-PI / 180 * this.angle);
