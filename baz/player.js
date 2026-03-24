@@ -4,7 +4,7 @@ const UP = 38;
 const DOWN = 40;
 const R = 82;
 const AIR_RESISTANCE_FACTOR = 0.25
-const MAX_SPEED = 5;
+const MAX_SPEED = 20;
 
 class Player {
     constructor(x, y, sprite) {

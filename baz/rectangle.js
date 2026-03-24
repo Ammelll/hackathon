@@ -1,6 +1,6 @@
 class Rectangle {
 
-    constructor(sprite, x, y, w, h = 60, rangeX = 0, rangeY = 0) {
+    constructor(sprite, x, y, w, h = 60, rangeX = 0, rangeY = 0, delay = -1) {
         this.x = x
         this.y = y
         this.ox = x;
@@ -13,6 +13,7 @@ class Rectangle {
         this.sprite = sprite
         this.rangeY = rangeY;
         this.rangeX = rangeX
+        this.delay = delay;
     }
 
     move() {
@@ -54,10 +55,12 @@ class Rectangle {
         let halfWidths = p.radius + this.w / 2;
         let halfHeights = p.radius + this.h / 2;
 
-        if (abs(dx) < halfWidths && dy < halfHeights && dy > 0) {
+        if (abs(dx) < halfWidths && dy < halfHeights ) {
+                    if(this.delay != -1){
+            setTimeout(() => {this.oy = 5000},this.delay)
+        }
             let overlapX = halfWidths - abs(dx);
             let overlapY = halfHeights - abs(dy);
-
             if (overlapX < overlapY) {
                 p.isWall = dx > 0 ? -1 : 1;
             } else {
