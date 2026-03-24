@@ -11,6 +11,7 @@ function loadLevels() {
             new Rectangle(grassImage, width * 11 / 12, height / 2, width / 6), 
             new Rectangle(grassImage, width * 14 / 12, height / 2, width / 6), 
             new Triangle(dirtImage, width * 29 / 24, height / 2, width * 29 / 24, height / 2 - height / 12, width * 31 / 24, height / 2),
+            new Rectangle(stoneImage, width * 31 / 24, height / 2, 5, -height / 12),
             new Rectangle(grassImage, width * 33 / 24, height / 2, width / 4), 
             new Wrecking_Ball(concreteBallImage, width * 71 / 48, height / 2 - height / 11, height / 7, 60), 
             new Rectangle(grassImage, width * 42 / 24, height / 2, width / 6), 

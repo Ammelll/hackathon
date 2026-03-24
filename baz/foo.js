@@ -4,9 +4,10 @@ let p;
 const width = window.innerWidth
 const height = window.innerHeight
 let levels;
-let start;
+let start = 0;
 let pauseTime = null;
-let sprites = ['assets/rb.png', 'assets/steve.png'];
+let sprites = ['assets/rb.png', 'assets/steve.png', 'assets/steven.jpg'];
+let defaultSprite;
 let sprite;
 
 startup();
@@ -30,7 +31,7 @@ function startup() {
 }
 
 function preload() {
-    noLoop();
+    defaultSprite = loadImage('assets/steve.png');
     grassImage = loadImage('/assets/grass.png');
     stoneImage = loadImage('/assets/stone.png');
     dirtImage = loadImage('/assets/dirt.png');
@@ -40,11 +41,14 @@ function preload() {
 function stup () {
     start = Date.now();
     sprite = loadImage(sprite);
-    loadLevels();
+    p.sprite = sprite;
     start = Date.now();
-    p = new Player(window.innerWidth / 2, window.innerHeight / 2 - 300, sprite);
+}
+
+function setup() {
+    loadLevels();
+    p = new Player(window.innerWidth / 2, window.innerHeight / 2 - 300, defaultSprite);
     createCanvas(window.innerWidth, window.innerHeight);
-    loop();
 }
 
 function draw() {
