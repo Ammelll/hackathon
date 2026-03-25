@@ -45,6 +45,7 @@ function stup () {
     sprite = loadImage(sprite);
     p.sprite = sprite;
     start = Date.now();
+    document.getElementById('baz').play();
 }
 
 function setup() {
