@@ -4,7 +4,7 @@ const UP = 38;
 const DOWN = 40;
 const R = 82;
 const AIR_RESISTANCE_FACTOR = 0.25
-const MAX_SPEED = 5;
+const MAX_SPEED = 10;
 
 class Player {
     constructor(x, y, sprite) {
@@ -18,7 +18,7 @@ class Player {
         this.isGround = false;
         this.sprite = sprite;
         this.angle = 0;
-        this.level = 0;
+        this.level = 3;
         //negative = left, 0 = nothing, positive = right
         this.isWall = 0;
         this.gravity = 0.1;
