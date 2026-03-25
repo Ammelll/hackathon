@@ -36,6 +36,8 @@ function preload() {
     stoneImage = loadImage('assets/stone.png');
     dirtImage = loadImage('assets/dirt.png');
     concreteBallImage = loadImage('assets/concrete.png');
+    questionMarkImage = loadImage('assets/questionmark.png');
+
 }
 
 function stup () {
