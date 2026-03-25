@@ -32,10 +32,10 @@ function startup() {
 
 function preload() {
     defaultSprite = loadImage('assets/steve.png');
-    grassImage = loadImage('/assets/grass.png');
-    stoneImage = loadImage('/assets/stone.png');
-    dirtImage = loadImage('/assets/dirt.png');
-    concreteBallImage = loadImage('/assets/concrete.png');
+    grassImage = loadImage('assets/grass.png');
+    stoneImage = loadImage('assets/stone.png');
+    dirtImage = loadImage('assets/dirt.png');
+    concreteBallImage = loadImage('assets/concrete.png');
 }
 
 function stup () {
