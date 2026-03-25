@@ -2,7 +2,7 @@ function loadLevels() {
     levels = [
         [
             new Rectangle(grassImage, width * 11 / 12, height / 2, width / 6), 
-            new Checkpoint(width * 13 / 12, height / 2 - 75),
+            // new Checkpoint(width * 13 / 12, height / 2 - 75),
             new Rectangle(grassImage, width * 6 / 5, height / 2, width * 1 / 3), 
             new Rectangle(stoneImage, width * 13 / 10, height / 2 - 100, 60, 100), 
             new Flag(width * 3 / 2, height / 2 - 100)
@@ -33,17 +33,19 @@ function loadLevels() {
             new Flag(width * 8 / 5, -height / 3 - 100)],
         [
             new Rectangle(grassImage, width * 11 / 12, height / 2,width,height/12), 
-
-            // new Crusher(width*11/12 + width/6,0,width*1/8,height/7,height/2-height/7,-2),
-            // new Crusher(width*11/12 + width*1/3,0,width*1/8,height/7,height/2-height/7,-4),
-            // new Crusher(width*11/12 + width*3/6,0,width*1/8,height/7,height/2-height/7,-6),
+            new Crusher(width*11/12 + width/6,0,width*1/8,height/7,height/2-height/7,-2),
+            new Crusher(width*11/12 + width*1/3,0,width*1/8,height/7,height/2-height/7,-4),
+            new Crusher(width*11/12 + width*3/6,0,width*1/8,height/7,height/2-height/7,-6),
             new Rectangle(grassImage,width * 11/12 + width, height/2 - height/12, height/12,height/12 + height/12),
             new Rectangle(grassImage,width * 11/12 + width + 1*height/12, height/2 - 2*height/12, height/12,height/12 + 2*height/12),
             new Rectangle(grassImage,width * 11/12 + width + 2*height/12, height/2 - 3*height/12, height/12,height/12+3*height/12),
             new Rectangle(grassImage,width * 11/12 + width + 3*height/12, height/2 - 4*height/12, height/12,height/12+4*height/12),
             new Rectangle(grassImage,width * 11/12 + width * 4*height/12, height/2 - 5*height/12, height/12,height/12+5*height/12),
             new Rectangle(grassImage,width * 11/12 + width * 5*height/12, height/2 - 6*height/12, width/6,height/12+6*height/12),
-            new Rectangle(stoneImage,width * 22/10, height/12,500,60,0,0,1000),
+            new Rectangle(stoneImage,width * 22/10, height/12,1000,60,0,0,500),
+            new Rectangle(grassImage, width * 25/10, height /12,width/6), 
+            new Flag(width*51/20,height/12-100)
+
         ],
     ];
 }

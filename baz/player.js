@@ -4,7 +4,7 @@ const UP = 38;
 const DOWN = 40;
 const R = 82;
 const AIR_RESISTANCE_FACTOR = 0.25
-const MAX_SPEED = 20;
+const MAX_SPEED = 5;
 
 class Player {
     constructor(x, y, sprite) {
@@ -18,7 +18,7 @@ class Player {
         this.isGround = false;
         this.sprite = sprite;
         this.angle = 0;
-        this.level = 3;
+        this.level = 0;
         //negative = left, 0 = nothing, positive = right
         this.isWall = 0;
         this.gravity = 0.1;
@@ -78,7 +78,7 @@ class Player {
         rotate(PI / 180 * this.angle);
         image(this.sprite, 0, 0, this.radius * 2, this.radius * 2);
         rotate(-PI / 180 * this.angle);
-        translate(-(window.innerWidth / 2), -(window.innerHeight / 2 - 300));
+        translate(-(this.rx), -(this.ry));
 
         // image(img, this.x-this.radius, this.y-this.radius,this.radius*2,this.radius*2);
     }

@@ -31,7 +31,6 @@ class Crusher {
         }
     }
     move() {
-        print(this.oy,this.ooy,this.range)
         if (this.range == 0) {
             this.v.vy = 0
         }

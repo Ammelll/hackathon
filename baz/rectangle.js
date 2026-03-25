@@ -55,10 +55,10 @@ class Rectangle {
         let halfWidths = p.radius + this.w / 2;
         let halfHeights = p.radius + this.h / 2;
 
-        if (abs(dx) < halfWidths && dy < halfHeights ) {
-                    if(this.delay != -1){
-            setTimeout(() => {this.oy = 5000},this.delay)
-        }
+        if (abs(dx) < halfWidths && dy < halfHeights && dy > -40) {
+            if(this.delay != -1){
+                setTimeout(() => {this.oy = 5000},this.delay)
+            }
             let overlapX = halfWidths - abs(dx);
             let overlapY = halfHeights - abs(dy);
             if (overlapX < overlapY) {
