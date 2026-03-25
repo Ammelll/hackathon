@@ -8,6 +8,7 @@
 </head>
 
 <body>
+  <audio id="baz" src="assets/redball.mp3" style="display: none"></audio>
   <script>
     for (const file of ['rectangle', 'crusher', 'wrecking_ball', 'triangle', 'flag', 'spikes', 'velocity', 'player', 'levels', 'checkpoint', 'foo'])
       document.body.appendChild(Object.assign(document.createElement('script'), { src: `baz/${file}.js` }));
