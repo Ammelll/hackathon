@@ -65,6 +65,8 @@ function draw() {
 }
 
 function keyPressed(keyEvent) {
+        p.keyPressed(key)
+
     if (keyEvent.key === 'p')
         pauseTime === null ? (
             noLoop(),
@@ -89,8 +91,4 @@ function drawRectangles() {
         r.move();
         r.draw(p);
     }
-}
-function keyPressed(){
-    print(key)
-    p.keyPressed(key)
 }
