@@ -33,26 +33,25 @@ class Player {
         this.death()
     }
     playerInputs() {
-        print(scalex,scaley)
         if (keyIsDown(LEFT)) {
-            this.v.vx -= this.acceleration * (this.isGround ? 1 : AIR_RESISTANCE_FACTOR) * scalex;
+            this.v.vx -= this.acceleration * (this.isGround ? 1 : AIR_RESISTANCE_FACTOR) ;
         }
         if (keyIsDown(RIGHT)) {
-            this.v.vx += this.acceleration * (this.isGround ? 1 : AIR_RESISTANCE_FACTOR) * scalex;
+            this.v.vx += this.acceleration * (this.isGround ? 1 : AIR_RESISTANCE_FACTOR);
         }
         if (keyIsDown(UP) && this.isGround) {
-            this.v.vy -= 5 * scaley;
+            this.v.vy -= 5;
         }
         if (keyIsDown(R)) {
             this.reset();
         }
     }
     move() {
-        if (abs(this.v.vx) > MAX_SPEED * scalex) {
-            this.v.vx = Math.min(Math.max(this.v.vx, -MAX_SPEED * scalex), MAX_SPEED * scalex);
+        if (abs(this.v.vx) > MAX_SPEED ) {
+            this.v.vx = Math.min(Math.max(this.v.vx, -MAX_SPEED ), MAX_SPEED);
         }
-        if (abs(this.v.vy) > MAX_SPEED * scaley) {
-            this.v.vy = Math.min(Math.max(this.v.vy, -MAX_SPEED * scaley), MAX_SPEED * scaley);
+        if (abs(this.v.vy) > MAX_SPEED ) {
+            this.v.vy = Math.min(Math.max(this.v.vy, -MAX_SPEED ), MAX_SPEED );
         }
         this.angle += this.v.vx
 
@@ -92,7 +91,7 @@ class Player {
         }
     }
     applyGravity() {
-        this.v.vy += this.gravity * scalex
+        this.v.vy += this.gravity 
     }
     death() {
         if (this.y > 500) {

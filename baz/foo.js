@@ -10,8 +10,7 @@ let sprites = ['assets/rb.png', 'assets/steve.png', 'assets/steven.jpg', 'assets
 let skyImage;
 let defaultSprite;
 let sprite;
-let scalex = 1920 / width
-let scaley = 1080 / height
+
 startup();
 
 function startup() {
