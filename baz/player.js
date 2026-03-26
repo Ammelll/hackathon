@@ -6,6 +6,7 @@ const R = 82;
 const AIR_RESISTANCE_FACTOR = 0.25
 const MAX_SPEED = 5;
 
+
 class Player {
     constructor(x, y, sprite) {
         this.x = x;
@@ -33,13 +34,13 @@ class Player {
     }
     playerInputs() {
         if (keyIsDown(LEFT)) {
-            this.v.vx -= this.acceleration * (this.isGround ? 1 : AIR_RESISTANCE_FACTOR);
+            this.v.vx -= this.acceleration * (this.isGround ? 1 : AIR_RESISTANCE_FACTOR) * scalex;
         }
         if (keyIsDown(RIGHT)) {
-            this.v.vx += this.acceleration * (this.isGround ? 1 : AIR_RESISTANCE_FACTOR);
+            this.v.vx += this.acceleration * (this.isGround ? 1 : AIR_RESISTANCE_FACTOR) * scalex;
         }
         if (keyIsDown(UP) && this.isGround) {
-            this.v.vy -= 5;
+            this.v.vy -= 5 * scaley;
         }
         if (keyIsDown(R)) {
             this.reset();
@@ -101,5 +102,10 @@ class Player {
         this.x = this.rx
         this.y = this.ry
         this.v = new Velocity(0, 0)
+        for (let r of levels[this.level]) {
+            if(r instanceof Rectangle){
+                r.reset();
+            }
+        }
     }
 }

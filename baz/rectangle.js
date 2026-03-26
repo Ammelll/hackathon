@@ -1,3 +1,5 @@
+let interval = -1;
+
 class Rectangle {
 
     constructor(sprite, x, y, w, h = 60, rangeX = 0, rangeY = 0, delay = -1) {
@@ -14,6 +16,8 @@ class Rectangle {
         this.rangeY = rangeY;
         this.rangeX = rangeX
         this.delay = delay;
+        this.tint = 256;
+        this.offset = 0;
     }
 
     move() {
@@ -40,8 +44,9 @@ class Rectangle {
     }
     draw(p) {
         this.x = this.ox - p.x;
-        this.y = this.oy - p.y;
+        this.y = this.oy - p.y + this.offset;
         imageMode(CORNER)
+        tint(256,this.tint)
         image(this.sprite, this.x, this.y, this.w, this.h);
     }
     collide(p) {
@@ -56,8 +61,9 @@ class Rectangle {
         let halfHeights = p.radius + this.h / 2;
 
         if (abs(dx) < halfWidths && dy < halfHeights && dy > -40) {
-            if(this.delay != -1){
-                setTimeout(() => {this.oy = 5000},this.delay)
+            if(this.delay != -1 && interval == -1){
+                setTimeout(() => {this.offset = -5000; clearInterval(interval)},this.delay)
+                interval = setInterval(() => {this.tint-=(255) * (1/10)},this.delay/11)
             }
             let overlapX = halfWidths - abs(dx);
             let overlapY = halfHeights - abs(dy);
@@ -68,5 +74,10 @@ class Rectangle {
                 p.v.vy = this.v.vy
             }
         }
+    }
+    reset(){
+        this.tint = 255;
+        this.offset = 0;
+        interval = -1;
     }
 }
