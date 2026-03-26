@@ -23,13 +23,13 @@ function loadLevels() {
         [
             new Rectangle(grassImage, width * 11 / 12, height / 2, width / 6), 
             new Rectangle(grassImage, width * 6 / 5, height / 2, width / 3), 
-            new Spikes(width * 13 / 10, height / 2, 300, 10), 
+            new Spikes(width * 51 / 40, height / 2, width/5, 10), 
             new Rectangle(stoneImage, width * 8 / 5, height / 2 - 100, width / 6, 20, 0, 200), 
             new Rectangle(grassImage, width * 6 / 5, height / 8, width / 3), 
-            new Spikes(width * 13 / 10, height / 8, 300, 10), 
+            new Spikes(width * 51 / 40, height / 8, width/5, 10), 
             new Rectangle(stoneImage, width, -100, width / 6, 20, 0, 200),
             new Rectangle(grassImage, width * 6 / 5, -height / 3, width / 2), 
-            new Spikes(width * 13 / 10, -height / 3, 300, 10), 
+            new Spikes(width * 51 / 40, -height / 3, width/5, 10), 
             new Flag(width * 8 / 5, -height / 3 - 100)],
         [
             new Rectangle(grassImage, width * 11 / 12, height / 2,width,height/12), 

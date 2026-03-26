@@ -92,7 +92,7 @@ class Player {
         }
     }
     applyGravity() {
-        this.v.vy += this.gravity
+        this.v.vy += this.gravity * scalex
     }
     death() {
         if (this.y > 500) {
