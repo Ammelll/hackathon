@@ -72,7 +72,6 @@ class Player {
     }
     draw() {
         fill('white')
-        circle(this.rx, this.ry, this.radius * 2)
         imageMode(CENTER);
         translate(this.rx, this.ry);
         rotate(PI / 180 * this.angle);
