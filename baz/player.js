@@ -4,7 +4,7 @@ const UP = 38;
 const DOWN = 40;
 const R = 82;
 const AIR_RESISTANCE_FACTOR = 0.25
-const MAX_SPEED = 5;
+const MAX_SPEED = 6;
 
 
 class Player {
@@ -14,7 +14,7 @@ class Player {
         this.rx = x;
         this.ry = y;
         this.v = new Velocity(0, 0);
-        this.acceleration = 0.25;
+        this.acceleration = 0.5;
         this.radius = 25;
         this.isGround = false;
         this.sprite = sprite;
@@ -33,6 +33,7 @@ class Player {
         this.death()
     }
     playerInputs() {
+        print(scalex,scaley)
         if (keyIsDown(LEFT)) {
             this.v.vx -= this.acceleration * (this.isGround ? 1 : AIR_RESISTANCE_FACTOR) * scalex;
         }
@@ -47,11 +48,11 @@ class Player {
         }
     }
     move() {
-        if (abs(this.v.vx) > MAX_SPEED) {
-            this.v.vx = Math.min(Math.max(this.v.vx, -MAX_SPEED), MAX_SPEED);
+        if (abs(this.v.vx) > MAX_SPEED * scalex) {
+            this.v.vx = Math.min(Math.max(this.v.vx, -MAX_SPEED * scalex), MAX_SPEED * scalex);
         }
-        if (abs(this.v.vy) > MAX_SPEED) {
-            this.v.vy = Math.min(Math.max(this.v.vy, -MAX_SPEED), MAX_SPEED);
+        if (abs(this.v.vy) > MAX_SPEED * scaley) {
+            this.v.vy = Math.min(Math.max(this.v.vy, -MAX_SPEED * scaley), MAX_SPEED * scaley);
         }
         this.angle += this.v.vx
 
