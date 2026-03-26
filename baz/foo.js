@@ -6,7 +6,8 @@ const height = window.innerHeight
 let levels;
 let start = 0;
 let pauseTime = null;
-let sprites = ['assets/rb.png', 'assets/steve.png', 'assets/steven.jpg'];
+let sprites = ['assets/rb.png', 'assets/steve.png', 'assets/steven.jpg', 'assets/alby.png'];
+let skyImage;
 let defaultSprite;
 let sprite;
 
@@ -37,6 +38,7 @@ function preload() {
     dirtImage = loadImage('assets/dirt.png');
     concreteBallImage = loadImage('assets/concrete.png');
     questionMarkImage = loadImage('assets/questionmark.png');
+    skyImage = loadImage('assets/sky.png');
 
 }
 
@@ -56,6 +58,7 @@ function setup() {
 
 function draw() {
     background(220);
+    image(skyImage, 0, 0, window.innerWidth, window.innerHeight);
     p.update()
     drawRectangles();
     drawText();

@@ -21,7 +21,7 @@ class Flag {
         if (p.rx - p.radius < this.x + this.w && p.rx + p.radius > this.x &&
             p.ry - p.radius < this.y + this.h && p.ry + p.radius > this.y) {
             if (this.downOffset > 20) {
-                this.downOffset -= 2.5
+                this.downOffset -= 2
             } else {
                 p.level += 1;
                 p.reset()
