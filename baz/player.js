@@ -23,6 +23,7 @@ class Player {
         //negative = left, 0 = nothing, positive = right
         this.isWall = 0;
         this.gravity = 0.1;
+        this.deaths = 0;
     }
     update() {
         this.collisions()
@@ -42,7 +43,9 @@ class Player {
         if (keyIsDown(UP) && this.isGround) {
             this.v.vy -= 5;
         }
-        if (keyIsDown(R)) {
+    }
+    keyPressed(key){
+        if (key == "r") {
             this.reset();
         }
     }
@@ -102,6 +105,7 @@ class Player {
         this.x = this.rx
         this.y = this.ry
         this.v = new Velocity(0, 0)
+        this.deaths+=1;
         for (let r of levels[this.level]) {
             if(r instanceof Rectangle){
                 r.reset();

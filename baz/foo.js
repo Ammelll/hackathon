@@ -81,6 +81,7 @@ function drawText() {
     fill('black');
     textSize(25);
     text(Math.floor(t / 1000) + '.' + Math.floor((t % 1000) / 10), 10, 25);
+    text("Deaths: " + p.deaths,10,50)
 }
 
 function drawRectangles() {
@@ -88,4 +89,8 @@ function drawRectangles() {
         r.move();
         r.draw(p);
     }
+}
+function keyPressed(){
+    print(key)
+    p.keyPressed(key)
 }
