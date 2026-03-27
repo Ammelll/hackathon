@@ -45,7 +45,9 @@ function loadLevels() {
             new Rectangle(questionMarkImage,width * 22/10, height/12,width/6,60,0,0,500),
             new Rectangle(grassImage, width * 25/10, height /12,width/6), 
             new Flag(width*51/20,height/12-100)
-
         ],
+        [
+            new Rectangle(grassImage, width * 11 / 12, height / 2,width/6,height/12), 
+        ]
     ];
 }

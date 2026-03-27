@@ -19,7 +19,7 @@ class Player {
         this.isGround = false;
         this.sprite = sprite;
         this.angle = 0;
-        this.level = 0;
+        this.level = 3;
         //negative = left, 0 = nothing, positive = right
         this.isWall = 0;
         this.gravity = 0.1;

@@ -10,6 +10,7 @@ let sprites = ['assets/rb.png', 'assets/steve.png', 'assets/steven.jpg', 'assets
 let skyImage;
 let defaultSprite;
 let sprite;
+let endTime = -1;
 
 startup();
 
@@ -63,8 +64,22 @@ function draw() {
     p.update()
     drawRectangles();
     drawText();
-}
+    if(p.level == 4){
+        if(endTime == -1){
+            endTime = Date.now()
+        }
+        drawEndText();
 
+    }
+}
+function drawEndText(){
+    print(endTime,start)
+    text("You won!",width/2,height/2-300)
+    let t = endTime - start;
+    text("Time:" + (Math.floor(t / 1000) + '.' + Math.floor((t % 1000) / 10)), width/2,height/2-250);
+    text("Deaths:" + p.deaths, width/2,height/2-200);
+
+}
 function keyPressed(keyEvent) {
     p.keyPressed(key)
 
