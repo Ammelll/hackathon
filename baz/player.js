@@ -14,12 +14,12 @@ class Player {
         this.rx = x;
         this.ry = y;
         this.v = new Velocity(0, 0);
-        this.acceleration = 0.25;
+        this.acceleration = 0.35;
         this.radius = 25;
         this.isGround = false;
         this.sprite = sprite;
         this.angle = 0;
-        this.level = 3;
+        this.level = 0;
         //negative = left, 0 = nothing, positive = right
         this.isWall = 0;
         this.gravity = 0.1;
