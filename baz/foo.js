@@ -47,6 +47,7 @@ function stup () {
     sprite = loadImage(sprite);
     p.sprite = sprite;
     start = Date.now();
+    setInterval(() => document.getElementById('baz').play(), 140000);
     document.getElementById('baz').play();
 }
 
@@ -65,7 +66,7 @@ function draw() {
 }
 
 function keyPressed(keyEvent) {
-        p.keyPressed(key)
+    p.keyPressed(key)
 
     if (keyEvent.key === 'p')
         pauseTime === null ? (

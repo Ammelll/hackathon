@@ -23,7 +23,8 @@ class Flag {
             if (this.downOffset > 20) {
                 this.downOffset -= 1.5
             } else {
-                p.level += 1;
+                p.level++;
+                p.deaths--;
                 p.reset()
             }
             p.v = new Velocity(0, 0)
