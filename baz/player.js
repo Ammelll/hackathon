@@ -4,7 +4,7 @@ const UP = 38;
 const DOWN = 40;
 const R = 82;
 const AIR_RESISTANCE_FACTOR = 0.25
-const MAX_SPEED = 6;
+const MAX_SPEED = 5;
 
 
 class Player {
@@ -14,7 +14,7 @@ class Player {
         this.rx = x;
         this.ry = y;
         this.v = new Velocity(0, 0);
-        this.acceleration = 0.5;
+        this.acceleration = 0.25;
         this.radius = 25;
         this.isGround = false;
         this.sprite = sprite;
